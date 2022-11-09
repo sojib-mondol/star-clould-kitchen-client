@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './BannerItem.css'
 
 const BannerItem = ({slide}) => {
@@ -18,12 +19,12 @@ const BannerItem = ({slide}) => {
                     </h1>
                 </div>
                 <div className="absolute flex justify-end transform -translate-y-1/2 left-24 w-2/5 top-1/2">
-                    <p className='text-white text-xl'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet aspernatur repellat</p>
+                    <p className='text-white text-xl'>Today's notions of “health and wellness” go beyond nutrition and even beyond food to embrace the health of the planet and the good of society.</p>
                 </div>
 
                 <div className="absolute flex justify-start transform -translate-y-1/2 left-24 w-2/5 top-3/4">
-                    <button className="btn btn-warning mr-5">Warning</button>
-                    <button className="btn btn-outline btn-warning">Warning</button>
+                    <Link to='/main-dishes'><button className="btn btn-outline btn-warning ">Our Main dishes</button>
+                    </Link>
                 </div>
 
                 <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">

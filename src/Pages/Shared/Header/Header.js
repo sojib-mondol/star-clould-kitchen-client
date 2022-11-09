@@ -27,7 +27,7 @@ const Header = () => {
         {menuItems2}
       </ul>
     </div>
-    <Link to="/" className="btn btn-ghost normal-case text-xl text-orange-600 font-bold">Star Cloud Kitchen</Link>
+    <Link to="/" className="btn btn-ghost normal-case text-3xl  text-orange-600 font-bold">Star Cloud Kitchen</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0 font-bold">
@@ -37,7 +37,7 @@ const Header = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <Link to='/login' className="btn btn-outline btn-success">LogIn</Link>
+    <Link to='/login' className="btn btn-outline btn-warning">LogIn</Link>
   </div>
 </div>
     );
