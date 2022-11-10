@@ -44,7 +44,7 @@ const OrderRow = ({order, handleDelete}) => {
         </td>
         <td>Purple</td>
         <th>
-          <button className="btn btn-ghost btn-xs">details</button>
+          <button className="btn btn-ghost btn-xs">Approving</button>
         </th>
       </tr>
         </div>

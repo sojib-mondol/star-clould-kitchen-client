@@ -15,7 +15,7 @@ const About = () => {
                       in this field</h1>
                     <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     <p className="py-6">Good & healthy food for necessary needs for every person</p>
-                    <button className="btn btn-primary">Get more info</button>
+                    {/* <button className="btn btn-primary">Get more info</button> */}
                 </div>
             </div>
         </div>
