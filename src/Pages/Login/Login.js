@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle} from "react-icons/fa";
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 const Login = () => {
 
     const {signIn, googleSignIn} = useContext(AuthContext);
-    const [error, setError] = useState('');
+    
     // for redirect means ----- login korar por kono ekta page e jaoya 
     const navigate = useNavigate();
     // location fatching for redirect the user 
@@ -27,7 +27,7 @@ const Login = () => {
             console.log(user);
             form.reset();
             // error clean
-            setError('');
+           
             // set redirect page location means kon page e jete chai log in er por
            // navigate('/');
            //navigate(from, {replace: true});
@@ -37,7 +37,7 @@ const Login = () => {
         }) 
         .catch(error => {
             console.error(error)
-            setError(error.message);
+            
         });
     }
 

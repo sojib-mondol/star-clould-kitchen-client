@@ -1,17 +1,65 @@
-import React from 'react';
+import React, { useContext} from 'react';
+import toast from 'react-hot-toast';
 import { FaGoogle} from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
+
+    const {createUser, googleSignIn, updateUserProfile} = useContext(AuthContext);
+
     const handleRegister = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
        const password = form.password.value;
        const name = form.name.value;
-        const phone = form.phone.value;
-       console.log(name, phone, email, password);
+       const photoURL = form.photo.value;
+       console.log(name, photoURL, email, password);
+
+       if (password.length < 6) {
+        alert('Password should be 6 characters or more.');
+        return;
+        }
+
+        createUser(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            form.reset();
+            // error clean
+            
+            // user info update
+            handleUpdateUserProfile(name, photoURL);
+           
+        }) 
+        .catch(error => {
+            console.error(error)
+        });
     }
+
+    // google sign in handle 
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            toast.success('Successfully logged in');
+        })
+        .catch(error => console.error(error));
+    }
+
+     // updating the user profile
+     const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name, 
+            photoURL: photoURL 
+        }
+        updateUserProfile(profile)
+        .then(() => {})
+        .catch(error => console.error(error))
+    }
+
 
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -27,9 +75,9 @@ const Register = () => {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Phone Number</span>
+            <span className="label-text">Photo url</span>
           </label>
-          <input type="text" name='phone' placeholder="Enter your phone number" className="input input-bordered" />
+          <input type="text" name='photo' placeholder="Enter your photo url" className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">
@@ -57,7 +105,7 @@ const Register = () => {
             <p>or sign in with: </p>
         </div>
         <div className=' grid justify-items-center'>
-            <FaGoogle   className='' style={{cursor:'pointer'}}></FaGoogle>
+            <FaGoogle onClick={handleGoogleSignIn}  className='' style={{cursor:'pointer'}}></FaGoogle>
             
         </div>
         </div>
