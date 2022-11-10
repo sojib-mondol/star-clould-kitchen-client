@@ -10,7 +10,7 @@ const Header = () => {
         <li><Link to='/blog'>Blog</Link></li>
     </>
     const menuItems3 = <>
-        <li><Link to='/main-dishes'>Main dishes</Link></li>
+        <li><Link to='/main-dishes'>Main Dishes</Link></li>
     </>
 
 

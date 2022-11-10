@@ -3,10 +3,10 @@ import logo from '../../../assets/icons/icons-logo.jpeg'
 
 const Footer = () => {
     return (
-    <footer className="footer p-32 bg-black text-white">
+    <footer className="footer p-32 bg-black mt-24 rounded-lg text-white">
         <div>
             <img className='rounded h-16'  src={logo} alt="Logo" />
-            <p>Star Clould Kitchen.<br/>Providing reliable food since 2000</p>
+            <p><span className='text-orange-600 font-bold text-2xl'>Star Clould Kitchen</span><br/>Providing reliable food since 2000</p>
         </div> 
         <div>
             <span className="footer-title">Services</span> 
