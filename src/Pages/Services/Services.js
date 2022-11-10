@@ -5,7 +5,7 @@ const Services = () => {
 
     const [services, setSevices] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/main-dishes')
+        fetch('https://star-cloud-kitchen-server.vercel.app/main-dishes')
         .then(res => res.json())
         .then(data => setSevices(data))
     }, [])

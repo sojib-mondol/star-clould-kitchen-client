@@ -25,6 +25,9 @@ const Header = () => {
     const menuItems3 = <>
         <li><Link to='/main-dishes'>Main Dishes</Link></li>
     </>
+    const menuItems4 = <>
+        <li><Link to='/orders'>Orders</Link></li>
+    </>
 
 
     return (
@@ -38,6 +41,7 @@ const Header = () => {
         {menuItems}
         {menuItems3}
         {menuItems2}
+        {menuItems4}
       </ul>
     </div>
     <Link to="/" className="btn btn-ghost normal-case text-3xl  text-orange-600 font-bold">Star Cloud Kitchen</Link>
@@ -47,6 +51,7 @@ const Header = () => {
       {menuItems}
       {menuItems3}
       {menuItems2}
+      {menuItems4}
     </ul>
   </div>
   <div className="navbar-end">

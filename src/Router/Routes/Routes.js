@@ -39,7 +39,7 @@ const router = createBrowserRouter([
             {
                 path: '/checkout/:id',
                 element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/main-dishes/${params.id}`)
+                loader: ({params}) => fetch(`https://star-cloud-kitchen-server.vercel.app/main-dishes/${params.id}`)
             },
             {
                 path: '/orders',
