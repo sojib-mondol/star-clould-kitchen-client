@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
+import PageNotFound404 from "../../Pages/PageNotFound404/PageNotFound404";
 import Profile from "../../Pages/Profile/Profile";
 import Register from "../../Pages/Register/Register";
 import Services from "../../Pages/Services/Services";
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
                 element: <Profile></Profile>
             },
         ]
+    },
+    {
+        path: '*',
+        element: <PageNotFound404></PageNotFound404>
     }
 
 
