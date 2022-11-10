@@ -4,7 +4,7 @@ import OrderRow from './OrderRow';
 
 const Orders = () => {
     const {user} = useContext(AuthContext);
-    const [orders, setOrders] = useState({})
+    const [orders, setOrders] = useState([])
 
     
 
