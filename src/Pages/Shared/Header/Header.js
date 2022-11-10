@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
+import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
+
+    const {user, logOut} = useContext(AuthContext); 
+    // sign out
+    const handleLogOut = () => {
+        logOut(() => {
+          toast.success('Successfully logged out');
+        })
+        .then()
+        .catch(error => console.error(error));
+      }
 
     const menuItems = <>
         <li><Link to='/'>Home</Link></li>
@@ -37,7 +50,28 @@ const Header = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <Link to='/login' className="btn btn-outline btn-warning">LogIn</Link>
+  <Link to="/">
+              {
+                user?.uid ? 
+                <div className='flex'>
+                  <Link to='/profile'><span className='text-decoration-none mr-4'>{user?.displayName}</span></Link>
+                  <Link to="/profile">
+                    {user?.photoURL?
+                      <img alt='profile img' className=' mr-4' style={{height: '30px'}} roundedCircle src={user?.photoURL} title={user?.displayName} /> 
+                      :
+                      <FaUser title={user?.displayName}></FaUser>
+                    }
+                  </Link>
+                  <button className='ml-4 btn btn-secondary'  onClick={handleLogOut}>Log Out</button>
+                </div>
+                : 
+                <>
+                  <Link to='/login'><button className="btn btn-secondary">LOGIN</button></Link>
+
+                {/* //   <Link to='/register'>Register</Link> */}
+                </>
+              }
+            </Link>
   </div>
 </div>
     );

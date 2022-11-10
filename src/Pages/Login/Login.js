@@ -1,16 +1,57 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle} from "react-icons/fa";
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Login = () => {
+
+    const {signIn, googleSignIn} = useContext(AuthContext);
+    const [error, setError] = useState('');
+    // for redirect means ----- login korar por kono ekta page e jaoya 
+    const navigate = useNavigate();
+    // location fatching for redirect the user 
+    const location = useLocation();
+    // And feachig the from
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
        const password = form.password.value;
-       console.log(email, password);
+       
+       signIn(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            form.reset();
+            // error clean
+            setError('');
+            // set redirect page location means kon page e jete chai log in er por
+           // navigate('/');
+           //navigate(from, {replace: true});
+           navigate(from, {replace: true});
+                
+            
+        }) 
+        .catch(error => {
+            console.error(error)
+            setError(error.message);
+        });
     }
+
+    // google sign in handle 
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            toast.success('Successfully logged in');
+        })
+        .catch(error => console.error(error));
+    }
+
     return (
         <div className="hero min-h-screen bg-base-200">
   <div className="hero-content flex-col lg:flex-row-reverse">
@@ -45,7 +86,7 @@ const Login = () => {
             <p>or sign in with: </p>
         </div>
         <div className=' grid justify-items-center'>
-            <FaGoogle   className='' style={{cursor:'pointer'}}></FaGoogle>
+            <FaGoogle  onClick={handleGoogleSignIn}  className='' style={{cursor:'pointer'}}></FaGoogle>
             
         </div>
         </div>
