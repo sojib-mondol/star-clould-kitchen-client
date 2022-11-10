@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
+import CheckOut from "../../Pages/CheckOut/CheckOut";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import PageNotFound404 from "../../Pages/PageNotFound404/PageNotFound404";
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
                 path: '/profile',
                 element: <Profile></Profile>
             },
+            {
+                path: '/checkout/:id',
+                element: <CheckOut></CheckOut>,
+                loader: ({params}) => fetch(`http://localhost:5000/main-dishes/${params.id}`)
+            }
         ]
     },
     {
