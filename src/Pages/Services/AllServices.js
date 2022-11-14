@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import ServicesCard from './ServicesCard';
 
-const Services = () => {
+const AllServices = () => {
 
     const [services, setSevices] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/main-dishes3')
+        fetch('http://localhost:5000/main-dishes')
         .then(res => res.json())
         .then(data => setSevices(data))
     }, [])
@@ -28,11 +27,9 @@ const Services = () => {
                     }
                 </div>
             </div>
-            <div className='mt-4 grid'>
-                <Link className=' justify-self-center' to='main-dishes '><button className="btn btn-secondary">See more</button></Link>
-            </div>
+            {/* <Link to='main-dishes'><button>See more</button></Link> */}
         </div>
     );
 };
 
-export default Services;
+export default AllServices;

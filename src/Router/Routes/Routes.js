@@ -8,6 +8,7 @@ import Orders from "../../Pages/Orders/Orders";
 import PageNotFound404 from "../../Pages/PageNotFound404/PageNotFound404";
 import Profile from "../../Pages/Profile/Profile";
 import Register from "../../Pages/Register/Register";
+import AllServices from "../../Pages/Services/AllServices";
 import Services from "../../Pages/Services/Services";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
             },
             {
                 path: '/main-dishes',
+                element: <AllServices></AllServices>
+            },
+            {
+                path: '/main-dishes3',
                 element: <Services></Services>
             },
             {
