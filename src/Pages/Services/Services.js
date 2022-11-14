@@ -16,6 +16,7 @@ const Services = () => {
             <div className='text-center mb-4'>
                 <p className="text-2xl font-bold text-orange-600">Service</p>
                 <h2 className="text-5xl font-semibold">Our Main Dishes</h2>
+                <p>We give a good qualitiful food for having a good health.</p>
             </div>
             <div>
                 {/* <h2>services: {services.length}</h2> */}
