@@ -1,16 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
+import AddService from "../../Pages/AddServices/AddService";
 import Blog from "../../Pages/Blog/Blog";
-import CheckOut from "../../Pages/CheckOut/CheckOut";
+
+import Details from "../../Pages/Details/Details";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
-import Orders from "../../Pages/Orders/Orders";
+import MyReviews from "../../Pages/MyReviews/MyReviews";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import PageNotFound404 from "../../Pages/PageNotFound404/PageNotFound404";
 import Profile from "../../Pages/Profile/Profile";
 import Register from "../../Pages/Register/Register";
 import AllServices from "../../Pages/Services/AllServices";
 import Services from "../../Pages/Services/Services";
-import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -41,14 +43,19 @@ const router = createBrowserRouter([
                 path: '/profile',
                 element: <Profile></Profile>
             },
+            
             {
-                path: '/checkout/:id',
-                element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
+                path: '/details/:id',
+                element: <PrivateRoute><Details></Details></PrivateRoute>,
                 loader: ({params}) => fetch(`https://star-cloud-kitchen-server.vercel.app/main-dishes/${params.id}`)
             },
             {
-                path: '/orders',
-                element: <PrivateRoute><Orders></Orders></PrivateRoute>
+                path: '/myreview',
+                element: <MyReviews></MyReviews>
+            },
+            {
+                path: '/addservice',
+                element: <AddService></AddService>
             },
             {
                 path: '/blog',

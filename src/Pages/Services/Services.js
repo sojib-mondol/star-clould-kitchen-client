@@ -6,7 +6,7 @@ const Services = () => {
 
     const [services, setSevices] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/main-dishes3')
+        fetch('https://star-cloud-kitchen-server.vercel.app/main-dishes3')
         .then(res => res.json())
         .then(data => setSevices(data))
     }, [])
@@ -29,7 +29,7 @@ const Services = () => {
                 </div>
             </div>
             <div className='mt-4 grid'>
-                <Link className=' justify-self-center' to='main-dishes '><button className="btn btn-secondary">See more</button></Link>
+                <Link className=' justify-self-center' to='main-dishes '><button className="btn btn-secondary">See All</button></Link>
             </div>
         </div>
     );
