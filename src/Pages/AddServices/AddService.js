@@ -1,9 +1,42 @@
 import React from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 
 const AddService = () => {
+
+    const handleAddSevices = (event) =>{
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const description = form.description.value;
+        const price = form.price.value;
+        
+        const service = {
+            title: name,
+            img: photo,
+            description: description,
+            price: price,
+            service_id: parseInt(Math.random()*100)
+        }
+        fetch('https://star-cloud-kitchen-server.vercel.app/addservice', {
+            method: 'POST',
+            headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(service),
+        })
+        .then(res => res.json())
+        .then(data => {
+            toast.success('Successfully added.')
+            form.reset();
+        })
+        .catch(err => console.log(err))
+    }
+
     return (
         <div>
-            <form>
+            <Toaster />
+            <form onSubmit={handleAddSevices}>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Sevices Name</span>
