@@ -1,14 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import DetailCard from '../Details/DetailCard';
+import Loading from '../Shared/Loading/Loading';
 
 const MyReviews = () => {
-
+    const {loading} = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
         fetch('https://star-cloud-kitchen-server.vercel.app/addreview')
         .then(res => res.json())
         .then(data => setReviews(data))
     }, [])
+
+    if(loading){
+        return <Loading></Loading>
+    }
+
     return (
         
         <div>

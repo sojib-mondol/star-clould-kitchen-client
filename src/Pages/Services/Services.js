@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import Loading from '../Shared/Loading/Loading';
 import ServicesCard from './ServicesCard';
 
 const Services = () => {
 
+    const {loading} = useContext(AuthContext);
     const [services, setSevices] = useState([]);
     useEffect(() => {
         fetch('https://star-cloud-kitchen-server.vercel.app/main-dishes3')
         .then(res => res.json())
         .then(data => setSevices(data))
     }, [])
+
+    if(loading){
+        return <Loading></Loading>
+    }
 
     return (
         <div>
