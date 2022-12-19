@@ -1,12 +1,19 @@
 import React, { useContext} from 'react';
 import toast from 'react-hot-toast';
 import { FaGoogle} from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
 
     const {createUser, googleSignIn, updateUserProfile} = useContext(AuthContext);
+
+     // for redirect means ----- login korar por kono ekta page e jaoya 
+     const navigate = useNavigate();
+     // location fatching for redirect the user 
+     const location = useLocation();
+     // And feachig the from
+     const from = location.state?.from?.pathname || '/';
 
     const handleRegister = event => {
         event.preventDefault();
@@ -26,11 +33,14 @@ const Register = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
-            form.reset();
-            // error clean
-            
             // user info update
             handleUpdateUserProfile(name, photoURL);
+            
+            form.reset();
+            // error clean
+            toast.success('Successfully logged in');
+            //navigate(from, {replace: true});
+            navigate(from, {replace: true});
            
         }) 
         .catch(error => {
@@ -45,6 +55,7 @@ const Register = () => {
             const user = result.user;
             console.log(user);
             toast.success('Successfully logged in');
+            navigate(from, {replace: true});
         })
         .catch(error => console.error(error));
     }
@@ -93,13 +104,13 @@ const Register = () => {
           
         </div>
         <div className="form-control mt-6">
-            <input className="btn btn-primary" type="submit" value="Login" />
+            <input className="btn btn-primary" type="submit" value="Register" />
           
         </div>
 
         <div>
         <div className='text-center mb-3'>
-            <p>Not a member? <Link to='/login' className='text-orange-600 font-bold'>Please Login</Link>  </p>
+            <p>Alredy a member? <Link to='/login' className='text-orange-600 font-bold'>Please Login</Link>  </p>
         </div>
         <div className='text-center mb-3'>
             <p>or sign in with: </p>

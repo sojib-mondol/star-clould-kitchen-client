@@ -27,7 +27,7 @@ const Login = () => {
             console.log(user);
             form.reset();
             // error clean
-           
+            toast.success('Successfully logged in');
             // set redirect page location means kon page e jete chai log in er por
            // navigate('/');
            //navigate(from, {replace: true});
@@ -48,6 +48,7 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             toast.success('Successfully logged in');
+            navigate(from, {replace: true});
         })
         .catch(error => console.error(error));
     }
