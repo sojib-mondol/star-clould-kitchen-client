@@ -17,19 +17,19 @@ const Header = () => {
       }
 
     const menuItems = <>
-        <li><Link to='/'>Home</Link></li>
+        <li><Link  className='btn btn-ghost text-black border-none rounded' to='/'>Home</Link></li>
     </>
     const menuItems2 = <>
-        <li><Link to='/blog'>Blog</Link></li>
+        <li><Link  className='btn btn-ghost text-black border-none rounded' to='/blog'>Blog</Link></li>
     </>
     const menuItems3 = <>
-        <li><Link to='/main-dishes'>Services</Link></li>
+        <li><Link  className='btn btn-ghost text-black border-none rounded' to='/main-dishes'>Services</Link></li>
     </>
     const menuItems4 = <>
-        <li><Link to='/myreview'>My Reviews</Link></li>
+        <li><Link  className='btn btn-ghost text-black border-none rounded' to='/myreview'>My Reviews</Link></li>
     </>
     const menuItems5 = <>
-        <li><Link to='/addservice'>Add Services</Link></li>
+        <li><Link  className='btn btn-ghost text-black border-none rounded' to='/addservice'>Add Services</Link></li>
     </>
 
 
@@ -68,13 +68,13 @@ const Header = () => {
               {
                 user?.uid ? 
                 <div className='flex'>
-                  <Link to='/profile'><span className='text-decoration-none mr-4'>{user?.displayName}</span></Link>
+                  <Link to='/profile'><span className='text-decoration-none mr-2 align-middle font-bold my-auto'>{user?.displayName}</span></Link>
                   
-                  <button className='ml-4 btn btn-secondary'  onClick={handleLogOut}>Log Out</button>
+                  <button className='ml-4 btn btn-secondary bg-orange-500 border-none hover:bg-orange-700'  onClick={handleLogOut}>Log Out</button>
                 </div>
                 : 
                 <>
-                  <Link to='/login'><button className="btn btn-secondary">LOGIN</button></Link>
+                  <Link to='/login'><button className="btn btn-secondary bg-orange-500 border-none hover:bg-orange-700">LOGIN</button></Link>
 
                 {/* //   <Link to='/register'>Register</Link> */}
                 </>

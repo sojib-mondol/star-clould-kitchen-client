@@ -12,7 +12,7 @@ const ServicesCard = ({service}) => {
                 <p>{description.slice(0, 100)} ...</p>
                 <div className="card-actions justify-end">
                     <Link to={`/details/${_id}`}>
-                        <button className="btn btn-primary">Details</button>
+                        <button className="btn btn-primary bg-orange-500 border-none hover:bg-orange-700">Details</button>
                     </Link>
                 </div>
             </div>

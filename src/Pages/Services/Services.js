@@ -38,7 +38,7 @@ const Services = () => {
                 </div>
             </div>
             <div className='mt-4 grid'>
-                <Link className=' justify-self-center' to='main-dishes '><button className="btn btn-secondary">See All</button></Link>
+                <Link className=' justify-self-center' to='main-dishes '><button className="btn px-10 bg-orange-500 border-none hover:bg-orange-700 ">See All</button></Link>
             </div>
         </div>
     );
