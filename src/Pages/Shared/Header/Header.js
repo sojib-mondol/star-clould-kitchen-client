@@ -44,8 +44,10 @@ const Header = () => {
         {menuItems}
         {menuItems3}
         {menuItems2}
-        {user?.uid ? menuItems4 : ""}
-        {user?.uid ? menuItems5 : ""}
+        {/* {user?.uid ? menuItems4 : ""}
+        {user?.uid ? menuItems5 : ""} */}
+        { menuItems4 }
+        {menuItems5}
       </ul>
     </div>
     <Link to="/" className="btn btn-ghost normal-case text-xl  text-orange-600 font-bold">Star Cloud Kitchen</Link>
@@ -55,8 +57,10 @@ const Header = () => {
       {menuItems}
       {menuItems3}
       {menuItems2}
-      {user?.uid ? menuItems4 : ""}
-      {user?.uid ? menuItems5 : ""}
+      {/* {user?.uid ? menuItems4 : ""}
+      {user?.uid ? menuItems5 : ""} */}
+      { menuItems4 }
+      {menuItems5 }
     </ul>
   </div>
   <div className="navbar-end">

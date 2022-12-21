@@ -47,7 +47,7 @@ const Details = () => {
         .catch(err => console.log(err))
     }
     return (
-        <div >
+        <div className='max-w-screen-xl mx-auto'>
            <Toaster />
             <div className="card lg:card-side bg-base-100 shadow-xl ">
                 <figure><img src={img} alt="Album"/></figure>

@@ -46,16 +46,16 @@ const router = createBrowserRouter([
             
             {
                 path: '/details/:id',
-                element: <PrivateRoute><Details></Details></PrivateRoute>,
+                element: <Details></Details>,
                 loader: ({params}) => fetch(`https://star-cloud-kitchen-server.vercel.app/main-dishes/${params.id}`)
             },
             {
                 path: '/myreview',
-                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
+                element: <MyReviews></MyReviews>
             },
             {
                 path: '/addservice',
-                element: <PrivateRoute><AddService></AddService></PrivateRoute>
+                element: <AddService></AddService>
             },
             {
                 path: '/blog',

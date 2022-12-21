@@ -34,7 +34,7 @@ const AddService = () => {
     }
 
     return (
-        <div>
+        <div className='max-w-screen-xl mx-auto'>
             <Toaster />
             <form onSubmit={handleAddSevices}>
                 <div className="form-control">
