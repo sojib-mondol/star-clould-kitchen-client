@@ -15,7 +15,7 @@ const AllServices = () => {
     if(loading){
         return <Loading></Loading>
     }
-    console.log("lofffffffffffffddddddddddddddiiiiiiiiiiinngg",loading)
+    
 
     return (
         <div>
