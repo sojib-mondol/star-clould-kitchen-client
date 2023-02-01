@@ -6,7 +6,7 @@ const AboutSCK = () => {
     return (
         <div className='grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-4 mt-20 px-10'>
             <div>
-                <h4 className='text-xl text-orange-600 font-bold'>ABOUT QICHEN</h4>
+                <h4 className='text-xl text-orange-600 font-bold'>ABOUT STAR CLOUD KITHEN</h4>
                 <h2 className='text-4xl mt-5'>The Best Tasty & <br /> Yamee Food and Chief <br /> Based on Italiano</h2>
                 <p className='py-5'>Sit amet consectetur adipiscing elitsue risus mauris quam neque adipiscing phasellus aenean ante orcirat scelerisque enim ut nulla vestibulum velvitae ut at elementum mauris, etiam ornare diame</p>
                 <button className="btn px-10 bg-orange-500 border-none hover:bg-orange-700 ">LEARN MORE <span className='pl-5'><AiOutlineArrowRight/></span></button>
